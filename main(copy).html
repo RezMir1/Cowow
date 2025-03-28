@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style(copy).css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item cowwow">
+          <a href="main(copy).html"
+            ><img class="stroke" src="cow.png" alt="CowwoW logo"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+        </li>
+        <li class="nav-item">
+          <a href="AboutUs.html"><img src="blog.png" alt="" />БЛОГ</a>
+        </li>
+        <li class="nav-item">
+          <a href="#AboutUs"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+        </li>
+        <li class="nav-item">
+          <a href=""><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+        </li>
+        <li class="nav-item">
+          <a href=""><img src="voiti.pngn" alt="" />Войти</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <div class="bgmain">
+        <div class="switch-container">
+          <label class="switch">
+            <input type="checkbox" id="toggleSwitch" />
+            <span class="slider">
+              <span class="slider-bg"></span>
+              <!-- Серый фон -->
+              <span class="slider-text-left">Поиск</span>
+              <!-- Текст "Поиск" -->
+            </span>
+          </label>
+        </div>
+
+        <div id="search-block" class="content-block poisk">
+          <table>
+            <tr>
+              <td class="find">ОБЪЕМ</td>
+              <td class="find">ЦЕНА</td>
+              <td class="find">СРОК Г.</td>
+              <td class="find"><button class="find">НАЙТИ</button></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="mera">
+                  <span class="otdo" class="otdo">от</span>
+                  <input type="number" />
+                  <select name="izmer" id="izmerenie">
+                    <option value="">кг</option>
+                    <option value="">л</option>
+                  </select>
+                  <span class="otdo">до</span>
+                  <input type="number" />
+                </span>
+              </td>
+              <td>
+                <span class="mera">
+                  <span class="otdo" class="otdo">от</span>
+                  <input type="number" />
+                  <span class="otdo">до</span>
+                  <input type="number" />
+                </span>
+              </td>
+              <td>
+                <span class="mera">
+                  <span class="otdo" class="otdo">от</span>
+                  <input type="number" />
+                  <span class="otdo">до</span>
+                  <input type="number" />
+                </span>
+              </td>
+              <td>
+                <select name="" id="">
+                  <option value="" class="bold">Выберите...</option>
+                  <option value="" class="bold">Молочные продукты</option>
+                  <option value="">Молоко</option>
+                  <option value="">Сметана</option>
+                  <option value="">Творог</option>
+                  <option value="">Масло сливочное</option>
+                  <option value="" class="bold">Мясо</option>
+                  <option value="">Курица</option>
+                  <option value="">Свинина</option>
+                  <option value="">Говядина</option>
+                  <option value="">Масло растительное</option>
+                  <option value="" class="bold">Овощи</option>
+                  <option value="">Картофель</option>
+                  <option value="">Марковь</option>
+                  <option value="">Горох</option>
+                  <option value="">Сладкий перец</option>
+                  <option value="">Огурцы</option>
+                  <option value="">Помидоры</option>
+                  <option value="">Салат</option>
+                  <option value="">Свекла</option>
+                  <option value="">Кабачки</option>
+                  <option value="">Баклажаны</option>
+                  <option value="">Лук</option>
+                  <option value="">Редис</option>
+                  <option value="" class="bold">Фрукты</option>
+                  <option value="">Яблоки</option>
+                  <option value="">Груши</option>
+                  <option value="">Персик</option>
+                  <option value="">Абрикос</option>
+                  <option value="">Нектарин</option>
+                  <option value="">Арбуз</option>
+                  <option value="">Сливы</option>
+                  <option value="">Мандарины</option>
+                  <option value="">Киви</option>
+                  <option value="">Инжир</option>
+                  <option value="">Гранат</option>
+                  <option value="">Виноград</option>
+                  <option value="">Лимон</option>
+                  <option value="">Апельсин</option>
+                  <option value="">Фейхоа</option>
+                  <option value="" class="bold">Ягоды</option>
+                  <option value="">Земляника</option>
+                  <option value="">Смородина красная</option>
+                  <option value="">Смородина чёрная</option>
+                  <option value="">Крыжовник</option>
+                  <option value="">Черника</option>
+                  <option value="">Голубика</option>
+                  <option value="">Малина</option>
+                  <option value="">Клюква</option>
+                  <option value="">Брусника</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="map-block" class="content-block" style="display: none">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A91eb879063e28e18d3085a56c83be47d6395e27b28ae668965de65042db66026&amp;source=constructor"
+            width="1200"
+            height="300"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+      <div class="bgmain2">
+        <div class="middle" id="AboutUs">
+          <h1>Что мы такое?</h1>
+          <p>
+            Города разрастаются, вокруг нас вырастают высотные дома и магазины.
+            И зайдя за покупками, ты не находишь то, что искал. Тот самый вкус
+            детсва. Домашние соленые огурчики, свежее парное молоко, как в
+            деревне у бабушки. Если вы чувствовали такое, то добро пожаловать в
+            CowwoW.
+          </p>
+          <p></p>
+          <p>
+            Мы доставляет продукты от фермеров к жителям больших городов,
+            желающим попробовать частичку природы и домашего хозяйства
+          </p>
+          <video src="ferm.mp4" class="ferm" muted loop autoplay></video>
+        </div>
+      </div>
+      <div class="bgmain3"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
