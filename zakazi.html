@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style(copy).css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hid {
+      }
+      .buhov:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item cowwow">
+          <a href="index.html"
+            ><img class="stroke" src="cow.png" alt="CowwoW logo"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html"><img src="blog.png" alt="" />БЛОГ</a>
+        </li>
+        <li class="nav-item">
+          <a href="kalendar.html"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+        </li>
+        <li class="nav-item">
+          <a href="zakazi.html"><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+        </li>
+        <li class="nav-item">
+          <a href="vhod.html"><img src="voiti.png" alt="" />Войти</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="korzina" id="korzina">
+        <label for="korzina" class="zak">Корзина</label>
+        <p></p>
+        <table>
+          <tr>
+            <td class="tab1 otdo">Наименование</td>
+            <td class="tab2 otdo">Объем</td>
+            <td class="tab3 otdo">Цена</td>
+            <td class="tab4 otdo">Дата Заказа</td>
+            <td class="tab5 otdo">Дата доставки</td>
+            <td class="tab7 otdo">Продавец</td>
+            <td class="tab6 otdo">Удалить заказ</td>
+          </tr>
+          <tr class="hid">
+            <td class="tab1">Куриное мясо</td>
+            <td class="tab2">3 кг</td>
+            <td class="tab3">657 руб/кг</td>
+            <td class="tab4">01.04.2024</td>
+            <td class="tab5">02.04.2024</td>
+            <td class="tab7"><a href="saller1.html" class="ksen">Ксения</a></td>
+            <td class="tab6">
+              <button class="buthov" onclick="hiden(this)">
+                Удалить заказ
+              </button>
+            </td>
+          </tr>
+
+          <tr class="hid">
+            <td class="tab1">Огурцы гладкие</td>
+            <td class="tab2">1 кг</td>
+            <td class="tab3">27 руб/кг</td>
+            <td class="tab4">30.03.2024</td>
+            <td class="tab5">03.04.2024</td>
+            <td class="tab7"><a href="saller1.html" class="ksen">Ксения</a></td>
+            <td class="tab6">
+              <button class="buthov" onclick="hiden(this)">
+                Удалить заказ
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="nedavno" id="nedavno">
+        <label for="nedavno" class="zak">Вы недавно заказывали...</label>
+        <p></p>
+        <figure class="receptfigure2">
+          <img src="Без названия (6).jpg" alt="" class="milk2" />
+          <figcaption class="cena otstup">Молоко 55 руб/л</figcaption>
+          <!-- Figure for account -->
+          <a href="saller1.html "> </a>
+          <a href="buying.html">
+            <button class="ButBuy">Повторить заказ</button></a
+          >
+        </figure>
+        <figure class="receptfigure2">
+          <img src="Без названия (6).jpg" alt="" class="milk2" />
+          <figcaption class="cena otstup">Молоко 55 руб/л</figcaption>
+          <!-- Figure for account -->
+          <a href="saller1.html "> </a>
+          <a href="buying.html">
+            <button class="ButBuy">Повторить заказ</button></a
+          >
+        </figure>
+        <figure class="receptfigure2">
+          <img src="Без названия (6).jpg" alt="" class="milk2" />
+          <figcaption class="cena otstup">Молоко 55 руб/л</figcaption>
+          <!-- Figure for account -->
+          <a href="saller1.html "> </a>
+          <a href="buying.html">
+            <button class="ButBuy">Повторить заказ</button></a
+          >
+        </figure>
+        <figure class="receptfigure2">
+          <img src="Без названия (6).jpg" alt="" class="milk2" />
+          <figcaption class="cena otstup">Молоко 55 руб/л</figcaption>
+          <!-- Figure for account -->
+          <a href="saller1.html "> </a>
+          <a href="buying.html">
+            <button class="ButBuy">Повторить заказ</button></a
+          >
+        </figure>
+      </div>
+    </div>
+    <script>
+      function hiden(button) {
+        const row = button.parentNode.parentNode;
+        row.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

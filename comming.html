@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style(copy).css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .valid {
+      color: green;
+    }
+
+    .invalid {
+      color: red;
+    }
+
+    .hidden {
+      display: none;
+    }
+    .error{
+      color: red;
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item cowwow">
+          <a href="index.html"
+            ><img class="stroke" src="cow.png" alt="CowwoW logo"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html"><img src="blog.png" alt="" />БЛОГ</a>
+        </li>
+        <li class="nav-item">
+          <a href="kalendar.html"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+        </li>
+        <li class="nav-item">
+          <a href=""><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+        </li>
+        <li class="nav-item">
+          <a href="comming.html"><img src="voiti.png" alt="" />Войти</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="forma content skidka2">
+      <div class="kalend centring">Регистраиция</div>
+      <div class="centring">
+        <p>
+          <label for="name">Имя <span class="error">*</span></label>
+          <input id="name" type="text" minlength="2" maxlength="15" required />
+        </p>
+        <p>
+          <label for="lastname">Фамилия <span class="error">*</span></label>
+          <input
+            id="lastname"
+            type="text"
+            minlength="2"
+            maxlength="36"
+            required
+          />
+        </p>
+        <p>
+          <label for="phone">Телефон<span class="error">*</span></label>
+          <input
+            id="phone"
+            oninput="formatPhoneNumber(event)"
+            type="number"
+            minlength="10"
+            maxlength="15"
+            required
+          />
+        </p>
+        <hr />
+        <h2>Статус<span class="error">*</span></h2>
+        <p>
+          <input
+            type="radio"
+            id="place_1"
+            name="status"
+            value="seller"
+            required
+          />
+          <label for="place_1">Продавец</label>
+        </p>
+        <p>
+          <input type="radio" id="place_2" name="status" value="buyer" checked />
+          <label for="place_2">Покупатель</label>
+        </p>
+        <p>
+          <input type="radio" id="place_3" name="status" value="admin" />
+          <label for="place_3">Администратор</label>
+        </p>
+        <p>
+          <input type="radio" id="place_4" name="status" value="moderator" />
+          <label for="place_4">Модератор</label>
+        </p>
+        <hr />
+        <h2>Адрес проживания<span class="error">*</span></h2>
+        <p>
+          <label for="city"
+            >Город <span class="error">*</span></label
+          >
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Введите свой город"
+            minlength="2"
+            maxlength="23"
+            required
+          />
+        </p>
+        <p>
+          <label for="street">Улица</label>
+          <input
+            type="text"
+            id="street"
+            name="street"
+            placeholder="Введите свою улицу"
+            minlength="2"
+            maxlength="150"
+          />
+        </p>
+        <p>
+          <label for="house">Дом</label>
+          <input
+            type="text"
+            id="house"
+            name="house"
+            placeholder="Введите номер дома"
+            minlength="1"
+            maxlength="7"
+          />
+        </p>
+        <hr />
+        <h2>Данные карты <span class="skidka">*</span></h2>
+        <p>
+          <label for="adress_1">Номер карты <span class="error">*</span></label>
+          <input
+            type="text"
+            id="adress_1"
+            name="adress_1"
+            placeholder="0000 0000 0000 0000"
+            minlength="20"
+            maxlength="24"
+            required
+          />
+        </p>
+        <p>
+          <label for="adress_2">Дата <span class="error">*</span></label>
+          <input
+            type="text"
+            id="adress_2"
+            name="adress_2"
+            placeholder="00/00"
+            minlength="4"
+            maxlength="5"
+            required
+          />
+        </p>
+        <p>
+          <label for="adress_3"
+            >Три цифры сзади карты <span class="error">*</span></label
+          >
+          <input
+            type="text"
+            id="adress_3"
+            name="adress_3"
+            placeholder="000"
+            minlength="3"
+            maxlength="3"
+            required
+          />
+        </p>
+        <hr />
+        <h2>О себе</h2>
+        <textarea rows="5" cols="60" name="about"></textarea>
+  
+        <p>
+          <button class="ButBuy skidka3 bigbut " onclick="vhod()">зарегестрироваться</button> 
+          <input type="reset" class="ButBuy" value="Очистить форму" />
+        </p>
+      
+    </div>
+    <script>
+      function showAlertAndRedirect() {
+        // Выводим сообщение с подтверждением
+        let confirmation = confirm("Заказ оформлен! Перейти к заказам?");
+  
+        // Если пользователь нажал "ОК"
+        if (confirmation) {
+          // Перенаправляем на другую страницу
+          window.location.href = "zakazi.html"; // Замените на нужный вам URL
+        } else {
+          // Если пользователь нажал "Отмена"
+          alert("Переход отменен.");
+        }
+      }
+      function SMS(){
+        let confirmation = confirm('СМС-КОД:1234');
+      }
+      function validatePassword() {
+      const passwordInput = document.getElementById("code");
+      const password = passwordInput.value;
+      const passwordValid = document.getElementById("codeValid");
+      const passwordInvalid = document.getElementById("codeInvalid");
+
+      if (password === "1234") {
+        passwordValid.classList.remove("hidden");
+        passwordInvalid.classList.add("hidden");
+      } else if(password != "") {
+        passwordValid.classList.add("hidden");
+        passwordInvalid.classList.remove("hidden");
+      }
+      else{
+        passwordValid.classList.add("hidden");
+        passwordInvalid.classList.add("hidden");
+      }
+    }
+    function vhod() {
+        // Выводим сообщение с подтверждением
+        let confirmation = confirm("Вы успешно зарегестрировались. Добро пожаловать!");
+  
+        // Если пользователь нажал "ОК"
+        if (confirmation) {
+          // Перенаправляем на другую страницу
+          window.location.href = "index.html"; // Замените на нужный вам URL
+        } else {
+          // Если пользователь нажал "Отмена"
+          alert("Переход отменен.");
+        }
+      }
+    </script>
+  </body>
+</html>

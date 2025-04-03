@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style(copy).css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .valid {
+      color: green;
+    }
+
+    .invalid {
+      color: red;
+    }
+
+    .hidden {
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item cowwow">
+          <a href="index.html"
+            ><img class="stroke" src="cow.png" alt="CowwoW logo"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html"><img src="blog.png" alt="" />БЛОГ</a>
+        </li>
+        <li class="nav-item">
+          <a href="kalendar.html"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+        </li>
+        <li class="nav-item">
+          <a href=""><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+        </li>
+        <li class="nav-item">
+          <a href="vhod.html"><img src="voiti.png" alt="" />Войти</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="forma content skidka2">
+      <div class="kalend centring">Оформить поупку</div>
+      <div class="centring">
+        <label for="zalobaphone">Номер телефона </label>
+        <input
+          id="zalobaphone"
+          class="label"
+          type="text"
+          placeholder="+7 999 999 99 99"
+        />
+        <button class="ButBuy skidka3" onclick="SMS() ">Отправить смс-код</button>
+      </div>
+
+      <div class="centring">
+        <label for="zalobaphone">СМС-код</label>
+        <input
+          id="code"
+          class="label"
+          type="text"
+          placeholder="XXXX"
+          maxlength="4"
+          minlength="4"
+          required
+          oninput="validatePassword()"
+        />  
+        <span id="codeValid" class="valid hidden">Код верный!</span>
+        <span id="codeInvalid" class="invalid hidden">Неверный код!</span>
+      </div>
+         <div class="centring">
+          <label for="obem">Объем</label>
+           <input
+            id="obem"
+            class="label"
+            type="text"
+            placeholder="В литрах или кг"
+            maxlength="4"
+            minlength="4"
+            required
+                   />
+                   <select name="" id="" class="centring">
+            <option value="">руб/кг</option>
+            <option value="">литров</option>
+                   </select>
+                   <button class="ButBuy skidka3 bigbut " onclick="showAlertAndRedirect()">Оформить заказ</button>
+         </div>
+         
+      </div>
+     
+      </div>
+      
+    </div>
+    <script>
+      function showAlertAndRedirect() {
+        // Выводим сообщение с подтверждением
+        let confirmation = confirm("Заказ оформлен! Перейти к заказам?");
+  
+        // Если пользователь нажал "ОК"
+        if (confirmation) {
+          // Перенаправляем на другую страницу
+          window.location.href = "zakazi.html"; // Замените на нужный вам URL
+        } else {
+          // Если пользователь нажал "Отмена"
+          alert("Переход отменен.");
+        }
+      }
+      function SMS(){
+        let confirmation = confirm('СМС-КОД:1234');
+      }
+      function validatePassword() {
+      const passwordInput = document.getElementById("code");
+      const password = passwordInput.value;
+      const passwordValid = document.getElementById("codeValid");
+      const passwordInvalid = document.getElementById("codeInvalid");
+
+      if (password === "1234") {
+        passwordValid.classList.remove("hidden");
+        passwordInvalid.classList.add("hidden");
+      } else if(password != "") {
+        passwordValid.classList.add("hidden");
+        passwordInvalid.classList.remove("hidden");
+      }
+      else{
+        passwordValid.classList.add("hidden");
+        passwordInvalid.classList.add("hidden");
+      }
+    }
+    </script>
+  </body>
+</html>

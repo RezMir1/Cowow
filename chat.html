@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style(copy).css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item cowwow">
+            <a href="index.html"
+              ><img class="stroke" src="cow.png" alt="CowwoW logo"
+            /></a>
+          </li>
+          <li class="nav-item">
+            <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html"><img src="blog.png" alt="" />БЛОГ</a>
+          </li>
+          <li class="nav-item">
+            <a href="kalendar.html"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+          </li>
+          <li class="nav-item">
+            <a href=""><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+          </li>
+          <li class="nav-item">
+            <a href="vhod.html"><img src="voiti.png" alt="" />Войти</a>
+          </li>
+        </ul>
+      </nav>
+    <div class="chat">
+        <div id="chat-container">
+          <!-- Сообщения будут добавляться сюда -->
+        </div>
+
+        <div class="messegeabs">
+          <div id="input-area">
+            <input
+              type="text"
+              id="message-input"
+              placeholder="Введите сообщение..."
+            />
+            <button id="send-button">Отправить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Получаем ссылки на HTML элементы
+      const chatContainer = document.getElementById("chat-container"); // Контейнер для сообщений
+      const messageInput = document.getElementById("message-input"); // Поле ввода сообщения
+      const sendButton = document.getElementById("send-button"); // Кнопка "Отправить"
+
+      // Функция для добавления сообщения в чат
+      function addMessage(text, sender) {
+        const messageDiv = document.createElement("div"); // Создаем новый div для сообщения
+        messageDiv.textContent = text; // Устанавливаем текст сообщения
+
+        if (sender === "user") {
+          // Если отправитель - пользователь
+          messageDiv.classList.add("user-message"); // Добавляем класс для стилизации сообщения пользователя
+        }
+
+        chatContainer.appendChild(messageDiv); // Добавляем сообщение в контейнер чата
+        chatContainer.scrollTop = chatContainer.scrollHeight; // Прокручиваем чат к низу, чтобы видеть последнее сообщение
+      }
+
+      // Объект с ответами бота
+      const botResponses = {
+        "здравствуйте, надолго?":
+          "На 1 день, можем привезти сегодня 2 литра или 3 завтра",
+        "давайте завтра": "Договорились",
+        "до завтра": "До свидания",
+      };
+
+      // Функция для получения ответа бота
+      function getBotResponse(message) {
+        const lowerMessage = message.toLowerCase(); // Преобразуем сообщение в нижний регистр
+        return botResponses[lowerMessage] || "Я не понимаю."; // Если есть ответ для сообщения - возвращаем его, иначе - "Я не понимаю."
+      }
+
+      // Добавляем обработчик события на кнопку "Отправить"
+      sendButton.addEventListener("click", () => {
+        const messageText = messageInput.value.trim(); // Получаем текст сообщения из поля ввода, удаляем лишние пробелы
+        if (messageText) {
+          // Если сообщение не пустое
+          addMessage(messageText, "user"); // Добавляем сообщение пользователя в чат
+          messageInput.value = ""; // Очищаем поле ввода
+
+          // Имитируем ответ бота (задержка 500 мс)
+          setTimeout(() => {
+            const botResponse = getBotResponse(messageText); // Получаем ответ бота
+            addMessage(botResponse, "bot"); // Добавляем ответ бота в чат
+          }, 500);
+        }
+      });
+
+      // Добавляем начальное сообщение от бота при загрузке страницы
+      addMessage("Привет! Начните общение.", "bot");
+    </script>
+</body>
+</html>

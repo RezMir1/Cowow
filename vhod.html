@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style(copy).css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .valid {
+      color: green;
+    }
+
+    .invalid {
+      color: red;
+    }
+
+    .hidden {
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item cowwow">
+          <a href="index.html"
+            ><img class="stroke" src="cow.png" alt="CowwoW logo"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html"><img src="blog.png" alt="" />БЛОГ</a>
+        </li>
+        <li class="nav-item">
+          <a href="kalendar.html"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+        </li>
+        <li class="nav-item">
+          <a href=""><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+        </li>
+        <li class="nav-item">
+          <a href="comming.html"><img src="voiti.png" alt="" />Войти</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="forma content skidka2">
+      <div class="kalend centring">Войти</div>
+      <div class="centring">
+        <label for="vhodphone">Номер телефона </label>
+        <input
+          id="vhodebaphone"
+          class="label"
+          type="text"
+          placeholder="+7 999 999 99 99"
+        />
+        <label for="pass">Пароль</label>
+        <input
+          id="pass"
+          class="label"
+          type="text"
+          placeholder="******************"
+          maxlength="4"
+          minlength="4"
+          required
+          oninput="validatePassword()"
+        />  
+        <button class="ButBuy skidka3 bigbut " onclick="vhod()">Войти</button> 
+        <button class="ButBuy skidka3 bigbut " onclick="reg()">Регистраиция</button>  
+      </div>
+       
+         </div>
+         
+      </div>
+     
+      </div>
+      
+    </div>
+    <script>
+      function vhod() {
+        // Выводим сообщение с подтверждением
+        let confirmation = confirm("Вы успешно вошли. Добро пожаловать!");
+  
+        // Если пользователь нажал "ОК"
+        if (confirmation) {
+          // Перенаправляем на другую страницу
+          window.location.href = "zakazi.html"; // Замените на нужный вам URL
+        } else {
+          // Если пользователь нажал "Отмена"
+          alert("Переход отменен.");
+        }
+      }
+      function reg(){
+        window.location.href = "comming.html    ";
+      }
+
+    </script>
+  </body>
+</html>

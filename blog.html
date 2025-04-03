@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style(copy).css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мой простой блог (с LocalStorage)</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+
+      .post {
+        border: 1px solid #66cc33;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      .post-author {
+        font-style: italic;
+        font-size: 0.8em;
+        margin-top: 5px;
+        color: rgb(168, 218, 230);
+      }
+
+      #new-post {
+        margin-top: 20px;
+        border: 3px solid #66cc33;
+        padding: 10px;
+      }
+
+      #new-post textarea {
+        width: 95%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+
+      #new-post button {
+        padding: 5px 10px;
+        background-color: #66cc33;
+        color: rgb(168, 218, 230);
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item cowwow">
+          <a href="index.html"
+            ><img class="stroke" src="cow.png" alt="CowwoW logo"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="recept.html"><img src="like.png" alt="" />ИЗБРАННОЕ</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html"><img src="blog.png" alt="" />БЛОГ</a>
+        </li>
+        <li class="nav-item">
+          <a href="kalendar.html"><img src="xz.png" alt="" />КАЛЕНДАРЬ</a>
+        </li>
+        <li class="nav-item">
+          <a href="zakazi.html"><img src="zakazi.png" alt="" />ЗАКАЗЫ</a>
+        </li>
+        <li class="nav-item">
+          <a href="vhod.html"><img src="voiti.png" alt="" />Войти</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="contentkalend">
+      <div class="post">
+        <p>
+          Всем привет! У меня вопрос к опытным коллегам. В этом году сена
+          накосили вроде неплохо, но погода была капризная. Боюсь, что часть
+          сыроватая. Как правильно подготовить сено к зимнему хранению, чтобы не
+          потерять качество и не нажить проблемы с самовозгоранием? Поделитесь
+          опытом, а то зима не за горами!
+        </p>
+        <p class="post-author">Автор: Иван</p>
+      </div>
+      <div class="post">
+        <p>
+          Привет, Петр! Знакомая проблема! У нас в Краснодарском крае влажность
+          вообще всегда повышенная. Главное - это продуманная просушка. Если
+          чувствуешь, что сено не до конца высохло, ни в коем случае не клади
+          его сразу в большие юбки. Лучше оставлять под навесом в небольших
+          стогах для дополнительной вентиляции. Обязательно проверяйте
+          температуру в течение первых нескольких недель. Можно просто воткнуть
+          щуп или длинный металлический прут. Если нагрев - это плохой знак,
+          нужно немедленно расшевелить. Еще вариант - добавить в сено соль, она
+          тоже помогает соблюдать режим оттягивания. И, конечно, проветриваемое
+          помещение для хранения - это наше все!
+        </p>
+        <p class="post-author">Автор: Петр</p>
+      </div>
+      <div id="blog-posts">
+        <!-- Здесь будут отображаться записи -->
+      </div>
+      <div id="new-post">
+        <h2>Написать новую запись</h2>
+        <textarea id="post-content" placeholder="Ваше мнение"></textarea>
+        <button onclick="addPost()">Опубликовать</button>
+      </div>
+    </div>
+
+    <script>
+      let posts = []; // Массив для хранения записей блога
+
+      // Функция для загрузки записей из LocalStorage
+      function loadPosts() {
+        const storedPosts = localStorage.getItem("blogPosts");
+        if (storedPosts) {
+          posts = JSON.parse(storedPosts);
+        }
+        renderPosts();
+      }
+
+      // Функция для сохранения записей в LocalStorage
+      function savePosts() {
+        localStorage.setItem("blogPosts", JSON.stringify(posts));
+      }
+
+      // Функция для отображения записей на странице
+      function renderPosts() {
+        const blogPostsDiv = document.getElementById("blog-posts");
+        blogPostsDiv.innerHTML = ""; // Очищаем содержимое
+
+        for (const post of posts) {
+          const newPost = document.createElement("div");
+          newPost.classList.add("post");
+          newPost.innerHTML = `
+                    <p>${post.content}</p>
+                    <p class="post-author">Автор: ${post.author}</p>
+                `;
+          blogPostsDiv.appendChild(newPost);
+        }
+      }
+
+      // Функция для добавления новой записи
+      function addPost() {
+        const postContent = document.getElementById("post-content").value;
+        if (postContent.trim() === "") {
+          alert("Запись не может быть пустой!");
+          return;
+        }
+
+        const newPost = {
+          content: postContent,
+          author: "Вы",
+        };
+
+        posts.push(newPost); // Добавляем новую запись в массив
+        savePosts(); // Сохраняем в LocalStorage
+        renderPosts(); // Отображаем на странице
+
+        document.getElementById("post-content").value = ""; // Очищаем поле ввода
+      }
+
+      // Загружаем записи при загрузке страницы
+      loadPosts();
+    </script>
+  </body>
+</html>
